@@ -1,38 +1,29 @@
 <!doctype html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="en" ng-app="sliderApp">
 <head>
   <meta charset="utf-8">
-  <title>Google Phone Gallery</title>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="css/app.css">
-  <script src="js/angular v1.2.js"></script>
+  <title>Anton Slider</title>
+  <link rel="stylesheet" href="css/antonSlider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   <script src="js/antonSlider.js"></script>
 </head>
-<body ng-controller="PhoneListCtrl">
-
-  <ul>
-    <li ng-repeat="phone in phones">
-      <span>{{phone.name}}</span>
-      <p>{{phone.snippet}}</p>
-    </li>
-  </ul>
-  <p>Total number of phones: {{phones.length}}</p>
-  <div ng-controller="NamesCtrl">
-	  <ul>
-		<li ng-repeat="name in names">
-		  <span>{{name.name}}</span>
-		  <p>{{name.surname}}</p>
-		</li>
-	  </ul>
+<body>
+	<div ng-controller="sliderCtrl">
+		<div id="divNum1">
+			<p>12 Months repayment monthly amount at 10%</p>
+			<span>{{repayment12}}</span>
+		</div>
+		<div id="divNum2">
+			<p>24 Months repayment monthly amount at 8%</p>
+			<span>{{repayment24}}</span>
+		</div>
+  
+	  <div id="divSliderContainer">
+		<input type="range" min="0" max="5000" step="250" value="2500" ng-model="sliderModel">
+	  </div>
+	  
+	  <p>Loan amount: <span ng-bind="sliderModel"></span></p>
   </div>
   
-  <p>Hello, {{name}}!</p>
-  
-  <table>
-  <tr><th colspan='8'>row number</th></tr>
-  <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]">
-	<td ng-repeat="j in [0, 1, 2, 3, 4, 5, 6, 7]">{{i+j}}</td>
-	</tr>
-</table>
 </body>
 </html>
